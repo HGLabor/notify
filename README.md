@@ -7,4 +7,15 @@ For this we use [alert](https://github.com/mooziii/alert), a blazing fast event 
 See [alert's documentation](https://github.com/mooziii/alert#tutorial) on how to listen to events.
 
 ### Events currently implemented
-- TODO
+<details open>
+<summary>Server</summary>
+
+- player join: called _after_ a player joins the server
+- player leave: called _after_ a player leaves the server
+
+</details>
+
+<details open>
+<summary>Client</summary>
+
+</details>
