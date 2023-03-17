@@ -15,26 +15,7 @@
   "license": "GPLv3+",
   "icon": "assets/notify/icon.png",
   "environment": "*",
-  "entrypoints": {
-    "main": [
-      {
-        "adapter": "kotlin",
-        "value": "de.hglabor.notify.Manager"
-      }
-    ],
-    "server": [
-      {
-        "adapter": "kotlin",
-        "value": "de.hglabor.notify.Manager"
-      }
-    ],
-    "client": [
-      {
-        "adapter": "kotlin",
-        "value": "de.hglabor.notify.Manager"
-      }
-    ]
-  },
+  "entrypoints": {},
   "mixins": [
     "notify.mixins.json"
   ],

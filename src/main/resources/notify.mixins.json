@@ -7,5 +7,10 @@
   },
   "mixins": [
 
+  ],
+  "client": [
+  ],
+  "server": [
+    "server.MixinPlayerManager"
   ]
 }

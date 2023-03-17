@@ -21,6 +21,8 @@ dependencies {
     modImplementation("net.fabricmc:fabric-language-kotlin:1.9.2+kotlin.1.8.10")
 
     modImplementation("net.silkmc:silk-core:$silkVersion")
+
+    implementation("me.obsilabor:alert:1.0.6") // mods that use this library have to implement alert themselves!
 }
 
 tasks {
