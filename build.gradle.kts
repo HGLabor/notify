@@ -4,6 +4,7 @@ val silkVersion = "1.9.7"
 plugins {
     kotlin("jvm") version "1.8.10"
     id("fabric-loom") version "1.1-SNAPSHOT"
+    id("maven-publish")
 }
 
 group = "de.hglabor"
@@ -40,5 +41,18 @@ tasks {
         val properties = mapOf("version" to project.version)
         inputs.properties(properties)
         filesMatching("fabric.mod.json") { expand(properties) }
+    }
+}
+
+// TODO maven central?
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+
+            this.groupId = project.group.toString()
+            this.artifactId = project.name.toLowerCase()
+            this.version = project.version.toString()
+        }
     }
 }
