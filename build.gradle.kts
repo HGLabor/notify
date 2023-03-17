@@ -6,7 +6,7 @@ plugins {
     id("fabric-loom") version "1.1-SNAPSHOT"
 }
 
-group = "org.example"
+group = "de.hglabor"
 version = "1.0.0"
 
 repositories {

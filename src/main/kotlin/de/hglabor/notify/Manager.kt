@@ -1,11 +1,11 @@
-package org.example.examplemod
+package de.hglabor.notify
 
 import net.fabricmc.api.ClientModInitializer
 import net.fabricmc.api.DedicatedServerModInitializer
 import net.fabricmc.api.ModInitializer
 import org.apache.logging.log4j.LogManager
 
-val logger = LogManager.getLogger("examplemod")
+val logger = LogManager.getLogger("notify")
 
 object Manager: ModInitializer, DedicatedServerModInitializer, ClientModInitializer {
 

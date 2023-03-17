@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "org.example.examplemod.mixins",
+  "package": "de.hglabor.notify.mixins",
   "compatibilityLevel": "JAVA_17",
   "injectors": {
     "defaultRequire": 0
