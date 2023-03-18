@@ -16,15 +16,6 @@ See [alert's documentation](https://github.com/mooziii/alert#tutorial) on how to
 
 Add the following to your mod's `build.gradle.kts` file:
 ```gradle
-plugins {
-    // ...
-    
-    // You probably want to add the shadow jar plugin to shade alert into your mod jar
-    id("com.github.johnrengelman.shadow") version "7.1.0"
-}
-
-// ...
-
 repositories {
     mavenCentral() // TODO
 }
