@@ -23,7 +23,12 @@ dependencies {
 
     modImplementation("net.silkmc:silk-core:$silkVersion")
 
-    implementation("me.obsilabor:alert:1.0.6") // mods that use this library have to implement alert themselves!
+    implementAndInclude("me.obsilabor:alert:1.0.6")
+}
+
+fun DependencyHandlerScope.implementAndInclude(notation: String) {
+    include(notation)
+    implementation(notation)
 }
 
 tasks {
