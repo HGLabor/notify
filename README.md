@@ -39,11 +39,31 @@ subscribeToEvent<PlayerJoinEvent> {
 </details>
 
 ### Events currently implemented
+Subscribing to events on the client is not tested! (server/common events **should work on the server**)
+<details open>
+
+<summary>Common</summary>
+
+- `PlayerAttackEntityEvent`
+- `PlayerHungerChangeEvent`
+- `PlayerItemPickupEvent`
+- `PlayerPlaceBlockEvent`
+- `PlayerSlotClickEvent`
+
+</details>
+
 <details open>
 <summary>Server</summary>
 
-- player join: called _after_ a player joins the server
-- player leave: called _after_ a player leaves the server
+- `PlayerBreakBlockEvent`
+- `PlayerDeathEvent`
+- `PlayerInteractItemEvent`
+- `PlayerItemDropEvent`
+- `PlayerItemDroppedEvent`
+- `PlayerJoinEvent`: called _after_ a player joins the server
+- `PlayerLeaveEvent`: called _after_ a player leaves the server
+- `PlayerSwapHandItemsEvent`
+- `PlayerTickEvent`
 
 </details>
 
