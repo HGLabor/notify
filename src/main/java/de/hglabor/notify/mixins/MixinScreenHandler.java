@@ -14,7 +14,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinScreenHandler {
     @Inject(method = "onSlotClick", at = @At("HEAD"), cancellable = true)
     public void onSlotClick(int slotId, int j, SlotActionType slotActionType, PlayerEntity playerEntity, CallbackInfo ci) {
-        var evt = new PlayerSlotClickEvent(playerEntity);
+        var evt = new PlayerSlotClickEvent(playerEntity, slotId, slotActionType);
         EventManager.callEvent(evt);
         if (evt.isCancelled()) {
             playerEntity.currentScreenHandler.syncState();
