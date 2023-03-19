@@ -1,4 +1,4 @@
-# notify
+# 🔔notify
 
 We don't want to create mixins for each project over and over again for the same events we could just use in the good old paper days.
 This is why we created this spectacular library/mod, where we just have to add the events once and can use them in every other project!
