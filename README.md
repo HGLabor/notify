@@ -17,14 +17,14 @@ See [alert's documentation](https://github.com/mooziii/alert#tutorial) on how to
 Add the following to your mod's `build.gradle.kts` file:
 ```gradle
 repositories {
-    mavenCentral() // TODO
+    mavenCentral() // TODO, use mavenLocal for now XD
 }
 
 dependencies {
     // ...
     
     implementation("me.obsilabor:alert:1.0.6")
-    modImplementation("de.hglabor:notify:1.0.0")
+    modImplementation("de.hglabor:notify:1.0.1")
 }
 ```
 Then put the built jar file of notify into your mods folder. You should be able to subscribe to the events like this:
