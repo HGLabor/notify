@@ -1,12 +1,10 @@
 package de.hglabor.notify.mixins.server;
 
-import de.hglabor.notify.events.server.player.PlayerDeathEvent;
-import de.hglabor.notify.events.server.player.PlayerItemDropEvent;
-import de.hglabor.notify.events.server.player.PlayerItemDroppedEvent;
-import de.hglabor.notify.events.server.player.PlayerTickEvent;
+import de.hglabor.notify.events.server.player.*;
 import me.obsilabor.alert.EventManager;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.packet.c2s.play.ClientSettingsC2SPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -51,5 +49,12 @@ public abstract class MixinServerPlayerEntity {
         if (evt.isCancelled()) {
             ci.cancel();
         }
+    }
+
+    @Inject(method = "setClientSettings", at = @At("HEAD"))
+    public void setClientSettings(ClientSettingsC2SPacket settingsPacket, CallbackInfo ci) {
+        var player = ((ServerPlayerEntity) (Object) this);
+        var evt = new PlayerSetSettingsEvent(player, settingsPacket);
+        EventManager.callEvent(evt);
     }
 }
