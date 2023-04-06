@@ -1,10 +1,12 @@
 val javaVersion = 17
 val silkVersion = "1.9.7"
+val repo = "HGLabor/notify"
 
 plugins {
     kotlin("jvm") version "1.8.10"
     id("fabric-loom") version "1.1-SNAPSHOT"
     id("maven-publish")
+    id("signing")
 }
 
 group = "de.hglabor"
@@ -49,8 +51,22 @@ tasks {
     }
 }
 
-// TODO maven central?
+java {
+    withSourcesJar()
+    withJavadocJar()
+}
+
+signing {
+    sign(publishing.publications)
+}
+
 publishing {
+    repositories {
+        maven("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/") {
+            name = "ossrh"
+            credentials(PasswordCredentials::class)
+        }
+    }
     publications {
         create<MavenPublication>("mavenJava") {
             from(components["java"])
@@ -58,6 +74,31 @@ publishing {
             this.groupId = project.group.toString()
             this.artifactId = project.name.toLowerCase()
             this.version = project.version.toString()
+
+            pom {
+                name.set(project.name)
+                description.set("Notify is a collection of fabric mixins for paper events (and some more).")
+
+                developers {
+                    developer {
+                        name.set("krxwallo")
+                    }
+                }
+
+                licenses {
+                    license {
+                        name.set("MIT")
+                        url.set("https://github.com/$repo/blob/main/LICENSE")
+                    }
+                }
+
+                url.set("https://github.com/$repo")
+
+                scm {
+                    connection.set("scm:git:git://github.com/$repo.git")
+                    url.set("https://github.com/$repo/tree/main")
+                }
+            }
         }
     }
 }
