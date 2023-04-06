@@ -24,7 +24,7 @@ dependencies {
     // ...
     
     implementation("me.obsilabor:alert:1.0.6")
-    modImplementation("de.hglabor:notify:1.0.1")
+    modImplementation("de.hglabor:notify:1.0.2")
 }
 ```
 Then put the built jar file of notify into your mods folder. You should be able to subscribe to the events like this:
