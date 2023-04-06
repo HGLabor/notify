@@ -17,7 +17,7 @@ See [alert's documentation](https://github.com/mooziii/alert#tutorial) on how to
 Add the following to your mod's `build.gradle.kts` file:
 ```gradle
 repositories {
-    mavenCentral() // TODO, use mavenLocal for now XD
+    mavenCentral()
 }
 
 dependencies {
