@@ -1,9 +1,8 @@
 val javaVersion = 17
-val silkVersion = "1.9.7"
 val repo = "HGLabor/notify"
 
 plugins {
-    kotlin("jvm") version "1.8.10"
+    kotlin("jvm") version "1.8.20"
     id("fabric-loom") version "1.1-SNAPSHOT"
     id("maven-publish")
     id("signing")
@@ -21,9 +20,7 @@ dependencies {
     mappings("net.fabricmc:yarn:1.19.4+build.1")
     modImplementation("net.fabricmc:fabric-loader:0.14.17")
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.76.0+1.19.4")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.9.2+kotlin.1.8.10")
-
-    modImplementation("net.silkmc:silk-core:$silkVersion")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.9.3+kotlin.1.8.20")
 
     implementAndInclude("me.obsilabor:alert:1.0.6")
 }

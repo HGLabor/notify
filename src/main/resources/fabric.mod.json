@@ -25,6 +25,5 @@
     "java": ">=17",
     "fabric-language-kotlin": "*",
     "fabric": "*",
-    "silk-core": "*"
   }
 }
