@@ -40,7 +40,7 @@ public class MixinServerPlayNetworkHandler {
             target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"
         )
     )
-    private Text onPlayerConnect(Text message) {
+    private Text onPlayerDisconnect(Text message) {
         var evt = EventManager.callEvent(new PlayerQuitEvent(player, message));
         return evt.getQuitMessage();
     }

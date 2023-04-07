@@ -9,7 +9,7 @@ import net.minecraft.text.Text
 
 /**
  * Called **during** the player quit process. Allows modification of the quit message
- * @see MixinPlayerManager.onPlayerConnect
+ * @see MixinServerPlayNetworkHandler.onPlayerDisconnect
  */
 @Environment(EnvType.SERVER)
 class PlayerQuitEvent(val player: ServerPlayerEntity, val quitMessage: Text?) : Event()
