@@ -1,6 +1,8 @@
 package de.hglabor.notify.events.server.player
 
 import me.obsilabor.alert.Cancellable
+import net.fabricmc.api.EnvType
+import net.fabricmc.api.Environment
 import net.minecraft.server.network.ServerPlayerEntity
 
 /**
@@ -8,4 +10,5 @@ import net.minecraft.server.network.ServerPlayerEntity
  *
  * Cancel to prevent.
  */
+@Environment(EnvType.SERVER)
 class PlayerSwapHandItemsEvent(val player: ServerPlayerEntity) : Cancellable()

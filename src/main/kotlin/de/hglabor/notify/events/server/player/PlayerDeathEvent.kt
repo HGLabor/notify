@@ -1,6 +1,8 @@
 package de.hglabor.notify.events.server.player
 
 import me.obsilabor.alert.Cancellable
+import net.fabricmc.api.EnvType
+import net.fabricmc.api.Environment
 import net.minecraft.server.network.ServerPlayerEntity
 
 /**
@@ -9,4 +11,5 @@ import net.minecraft.server.network.ServerPlayerEntity
  * Cancel to prevent.
  * Note that you will still have to handle the player stuff (reset health etc.) yourself when canceled.
  */
+@Environment(EnvType.SERVER)
 class PlayerDeathEvent(val player: ServerPlayerEntity) : Cancellable()
