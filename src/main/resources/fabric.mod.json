@@ -23,6 +23,6 @@
     "minecraft": "1.19.x",
     "java": ">=17",
     "fabric-language-kotlin": "*",
-    "fabric": "*",
+    "fabric-api": "*",
   }
 }
