@@ -74,6 +74,11 @@ publishing {
                 developers {
                     developer {
                         name.set("krxwallo")
+                        url.set("https://github.com/Krxwallo")
+                    }
+                    developer {
+                        name.set("mooziii")
+                        url.set("https://github.com/mooziii")
                     }
                 }
 
