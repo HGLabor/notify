@@ -7,8 +7,8 @@ import net.fabricmc.api.Environment
 import net.minecraft.server.network.ServerPlayerEntity
 
 /**
- * Called **after** a player leaves.
+ * Called **after** a player got removed from the player list.
  * @see MixinPlayerManager.remove
  */
 @Environment(EnvType.SERVER)
-class PlayerLeaveEvent(val player: ServerPlayerEntity) : Event()
+class PlayerRemoveEvent(val player: ServerPlayerEntity) : Event()
