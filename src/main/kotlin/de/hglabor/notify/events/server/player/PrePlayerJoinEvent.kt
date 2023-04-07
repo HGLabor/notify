@@ -5,11 +5,10 @@ import me.obsilabor.alert.Event
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
 import net.minecraft.server.network.ServerPlayerEntity
-import net.minecraft.text.Text
 
 /**
- * Called **during** the player join process. Allows modification of the join message
- * @see MixinPlayerManager.onPlayerConnect
+ * Called **before** a player joins. Doesn't allow modification of the join message
+ * @see MixinPlayerManager.onPlayerConnectPre
  */
 @Environment(EnvType.SERVER)
-class PlayerJoinEvent(val player: ServerPlayerEntity, val joinMessage: Text?) : Event()
+class PrePlayerJoinEvent(val player: ServerPlayerEntity) : Event()

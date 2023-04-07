@@ -8,8 +8,8 @@ import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.text.Text
 
 /**
- * Called **during** the player join process. Allows modification of the join message
+ * Called **during** the player quit process. Allows modification of the quit message
  * @see MixinPlayerManager.onPlayerConnect
  */
 @Environment(EnvType.SERVER)
-class PlayerJoinEvent(val player: ServerPlayerEntity, val joinMessage: Text?) : Event()
+class PlayerQuitEvent(val player: ServerPlayerEntity, val quitMessage: Text?) : Event()
