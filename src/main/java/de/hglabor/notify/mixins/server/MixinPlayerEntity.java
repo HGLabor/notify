@@ -16,8 +16,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public class MixinPlayerEntity {
     @Inject(method = "attack", at = @At("HEAD"), cancellable = true)
     public void attack(Entity entity, CallbackInfo ci) {
-        var evt = new PlayerAttackEntityEvent((PlayerEntity) (Object) this, entity);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerAttackEntityEvent((PlayerEntity) (Object) this, entity));
         if (evt.isCancelled()) ci.cancel();
     }
 }

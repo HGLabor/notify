@@ -26,8 +26,7 @@ public class MixinServerPlayerInteractionManager {
 
     @Inject(method = "interactItem", at = @At("HEAD"), cancellable = true)
     public void interactItem(ServerPlayerEntity player, World world, ItemStack stack, Hand hand, CallbackInfoReturnable<ActionResult> cir) {
-        var evt = new PlayerInteractItemEvent(player, stack, hand);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerInteractItemEvent(player, stack, hand));
 
         if (evt.isCancelled()) {
             cir.setReturnValue(ActionResult.CONSUME);
@@ -36,8 +35,7 @@ public class MixinServerPlayerInteractionManager {
 
     @Inject(method = "tryBreakBlock", at = @At("HEAD"), cancellable = true)
     public void tryBreakBlock(BlockPos pos, CallbackInfoReturnable<Boolean> cir) {
-        var evt = new PlayerBreakBlockEvent(player, pos);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerBreakBlockEvent(player, pos));
         if (evt.isCancelled()) cir.setReturnValue(false);
     }
 }

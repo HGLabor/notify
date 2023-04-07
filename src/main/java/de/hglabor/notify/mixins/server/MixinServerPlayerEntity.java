@@ -28,8 +28,7 @@ public abstract class MixinServerPlayerEntity {
     @Inject(method = "dropSelectedItem", at = @At("HEAD"), cancellable = true)
     public void dropSelectedItem(boolean dropAll, CallbackInfoReturnable<Boolean> cir) {
         var player = ((ServerPlayerEntity) (Object) this);
-        var evt = new PlayerItemDropEvent(player, player.getMainHandStack());
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerItemDropEvent(player, player.getMainHandStack()));
         if (evt.isCancelled()) {
             // Sync client inventory
             player.currentScreenHandler.syncState();
@@ -49,8 +48,7 @@ public abstract class MixinServerPlayerEntity {
     @Inject(method = "onDeath", at = @At("HEAD"), cancellable = true)
     public void onDeath(CallbackInfo ci) {
         var player = ((ServerPlayerEntity) (Object) this);
-        var evt = new PlayerDeathEvent(player);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerDeathEvent(player));
         if (evt.isCancelled()) {
             ci.cancel();
         }
@@ -59,15 +57,14 @@ public abstract class MixinServerPlayerEntity {
     @Inject(method = "setClientSettings", at = @At("HEAD"))
     public void setClientSettings(ClientSettingsC2SPacket settingsPacket, CallbackInfo ci) {
         var player = ((ServerPlayerEntity) (Object) this);
-        var evt = new PlayerSetSettingsEvent(player, settingsPacket);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerSetSettingsEvent(player, settingsPacket));
+        settingsPacket = evt.getSettingsPacket();
     }
 
     @Inject(method = "damage", at = @At("TAIL"), cancellable = true)
     public void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
         var player = ((ServerPlayerEntity) (Object) this);
-        var evt = new PlayerDamageEvent(player, source, amount);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerDamageEvent(player, source, amount));
         if (evt.isCancelled()) {
             if (evt.getNewAmount() == 0f) cir.setReturnValue(false);
             else cir.setReturnValue(((PlayerEntity) (Object) this).damage(source, evt.getNewAmount()));

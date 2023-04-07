@@ -19,8 +19,7 @@ public class MixinHungerManager {
     private void onUpdate(PlayerEntity player, CallbackInfo ci) {
         var newValue = Math.max(foodLevel - 1, 0);
         if (newValue != foodLevel) {
-            var evt = new PlayerHungerChangeEvent(player, foodLevel, newValue);
-            EventManager.callEvent(evt);
+            var evt = EventManager.callEvent(new PlayerHungerChangeEvent(player, foodLevel, newValue));
             if (evt.isCancelled()) {
                 ci.cancel();
             }

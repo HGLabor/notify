@@ -14,8 +14,7 @@ public class MixinItemEntity {
     @Redirect(at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/player/PlayerInventory;insertStack(Lnet/minecraft/item/ItemStack;)Z"), method = "onPlayerCollision")
     public boolean onPlayerCollision(PlayerInventory playerInventory, ItemStack stack) {
         var player = playerInventory.player;
-        var event = new PlayerItemPickupEvent(player, stack, (ItemEntity) (Object) this);
-        EventManager.callEvent(event);
+        var event = EventManager.callEvent(new PlayerItemPickupEvent(player, stack, (ItemEntity) (Object) this));
 
         if (event.isCancelled()) return false;
         return playerInventory.insertStack(stack);

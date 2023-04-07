@@ -20,8 +20,7 @@ public class MixinServerPlayNetworkHandler {
 
     @Inject(method = "onPlayerAction", at = @At(value = "INVOKE", target="Lnet/minecraft/server/network/ServerPlayerEntity;setStackInHand(Lnet/minecraft/util/Hand;Lnet/minecraft/item/ItemStack;)V"), cancellable = true)
     public void onPlayerAction(PlayerActionC2SPacket playerActionC2SPacket, CallbackInfo ci) {
-        var evt = new PlayerSwapHandItemsEvent(player);
-        EventManager.callEvent(evt);
+        var evt = EventManager.callEvent(new PlayerSwapHandItemsEvent(player));
         if (evt.isCancelled()) {
             // Sync client inventory
             player.currentScreenHandler.syncState();

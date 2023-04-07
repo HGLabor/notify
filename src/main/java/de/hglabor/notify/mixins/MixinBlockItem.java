@@ -17,8 +17,7 @@ public class MixinBlockItem {
     public void place(ItemPlacementContext context, CallbackInfoReturnable<ActionResult> cir) {
         var player = context.getPlayer();
         if (player != null) {
-            var evt = new PlayerPlaceBlockEvent(player, context);
-            EventManager.callEvent(evt);
+            var evt = EventManager.callEvent(new PlayerPlaceBlockEvent(player, context));
             if (evt.isCancelled()) {
                 // Sync client inventory
                 player.currentScreenHandler.syncState();
