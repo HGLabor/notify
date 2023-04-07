@@ -23,8 +23,7 @@ repositories {
 dependencies {
     // ...
     
-    implementation("me.obsilabor:alert:1.0.6")
-    modImplementation("de.hglabor:notify:1.0.2")
+    modImplementation("de.hglabor:notify:1.0.3")
 }
 ```
 Then put the built jar file of notify into your mods folder. You should be able to subscribe to the events like this:
@@ -60,8 +59,11 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerInteractItemEvent`
 - `PlayerItemDropEvent`
 - `PlayerItemDroppedEvent`
-- `PlayerJoinEvent`: called _after_ a player joins the server
-- `PlayerLeaveEvent`: called _after_ a player leaves the server
+- `PrePlayerJoinEvent`: called _before_ a player joins the server
+- `PlayerJoinEvent`: called _when_ a player joins the server. Allows modification of the join message
+- `PostPlayerJoinEvent`: called _after_ a player joins the server
+- `PlayerRemoveEvent`: called _after_ a player got removed from the player list
+- `PlayerQuitEvent`: called _when_ a player quits the server. Allows modification of the quit message
 - `PlayerSwapHandItemsEvent`
 - `PlayerTickEvent`
 
