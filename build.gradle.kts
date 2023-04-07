@@ -22,7 +22,7 @@ dependencies {
     modImplementation("net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.4")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.9.3+kotlin.1.8.20")
 
-    include(implementation("me.obsilabor:alert:1.0.6")!!)
+    include(api("me.obsilabor:alert:1.0.6")!!)
 }
 
 tasks {
