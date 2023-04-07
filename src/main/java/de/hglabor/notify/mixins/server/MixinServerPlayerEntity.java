@@ -2,6 +2,8 @@ package de.hglabor.notify.mixins.server;
 
 import de.hglabor.notify.events.server.player.*;
 import me.obsilabor.alert.EventManager;
+import net.fabricmc.api.EnvType;
+import net.fabricmc.api.Environment;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.player.PlayerEntity;
@@ -15,6 +17,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import org.spongepowered.asm.mixin.injection.callback.LocalCapture;
 
+@Environment(EnvType.SERVER)
 @Mixin(value = ServerPlayerEntity.class)
 public abstract class MixinServerPlayerEntity {
     @Inject(method = "tick", at = @At("TAIL"))
