@@ -12,7 +12,7 @@
     "issues": "https://github.com/HGLabor/notify/issues",
     "sources": "https://github.com/HGLabor/notify"
   },
-  "license": "GPLv3+",
+  "license": "MIT",
   "icon": "assets/notify/icon.png",
   "environment": "*",
   "entrypoints": {},
