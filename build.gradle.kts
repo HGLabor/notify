@@ -17,17 +17,12 @@ repositories {
 
 dependencies {
     minecraft("com.mojang:minecraft:1.19.4")
-    mappings("net.fabricmc:yarn:1.19.4+build.1")
+    mappings("net.fabricmc:yarn:1.19.4+build.1:v2")
     modImplementation("net.fabricmc:fabric-loader:0.14.17")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.76.0+1.19.4")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.4")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.9.3+kotlin.1.8.20")
 
-    implementAndInclude("me.obsilabor:alert:1.0.6")
-}
-
-fun DependencyHandlerScope.implementAndInclude(notation: String) {
-    include(notation)
-    implementation(notation)
+    include(implementation("me.obsilabor:alert:1.0.6")!!)
 }
 
 tasks {
