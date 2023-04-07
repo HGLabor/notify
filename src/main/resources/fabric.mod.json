@@ -3,7 +3,7 @@
   "id": "notify",
   "version": "${version}",
   "name": "notify",
-  "description": " A collection of fabric mixins for (paper) events.",
+  "description": "A collection of fabric mixins for (paper) events.",
   "authors": [
     "Krxwallo"
   ],
@@ -11,6 +11,15 @@
     "homepage": "https://github.com/HGLabor/notify",
     "issues": "https://github.com/HGLabor/notify/issues",
     "sources": "https://github.com/HGLabor/notify"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/tyy5DsWZ9P"
+      },
+      "badges": ["library"],
+      "update_checker": true
+    }
   },
   "license": "MIT",
   "icon": "assets/notify/icon.png",
@@ -23,6 +32,6 @@
     "minecraft": "1.19.x",
     "java": ">=17",
     "fabric-language-kotlin": "*",
-    "fabric-api": "*",
+    "fabric-api": "*"
   }
 }
