@@ -12,4 +12,4 @@ import net.minecraft.text.Text
  * @see MixinPlayerManager.onPlayerConnect
  */
 @Environment(EnvType.SERVER)
-class PlayerJoinEvent(val player: ServerPlayerEntity, val joinMessage: Text?) : Event()
+class PlayerJoinEvent(val player: ServerPlayerEntity, var joinMessage: Text?) : Event()

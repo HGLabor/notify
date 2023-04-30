@@ -11,4 +11,4 @@ import net.minecraft.text.Text
  * @see MixinServerPlayNetworkHandler.onPlayerDisconnect
  */
 @Environment(EnvType.SERVER)
-class PlayerQuitEvent(val player: ServerPlayerEntity, val quitMessage: Text?) : Event()
+class PlayerQuitEvent(val player: ServerPlayerEntity, var quitMessage: Text?) : Event()
