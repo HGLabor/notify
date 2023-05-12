@@ -48,6 +48,7 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerItemPickupEvent`
 - `PlayerPlaceBlockEvent`
 - `PlayerSlotClickEvent`
+- `EntityDamageEvent`
 
 </details>
 
