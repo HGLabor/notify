@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "de.hglabor"
-version = "1.0.4"
+version = "1.0.5"
 
 repositories {
     mavenCentral()
@@ -64,7 +64,7 @@ publishing {
             from(components["java"])
 
             this.groupId = project.group.toString()
-            this.artifactId = project.name.toLowerCase()
+            this.artifactId = project.name.lowercase()
             this.version = project.version.toString()
 
             pom {

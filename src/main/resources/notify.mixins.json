@@ -9,7 +9,8 @@
     "MixinScreenHandler",
     "MixinBlockItem",
     "MixinHungerManager",
-    "MixinItemEntity"
+    "MixinItemEntity",
+    "MixinLivingEntity"
   ],
   "client": [
   ],
