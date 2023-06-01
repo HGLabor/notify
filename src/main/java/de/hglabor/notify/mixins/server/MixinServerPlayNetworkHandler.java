@@ -1,11 +1,13 @@
 package de.hglabor.notify.mixins.server;
 
+import de.hglabor.notify.events.server.player.PlayerInteractBlockEvent;
 import de.hglabor.notify.events.server.player.PlayerQuitEvent;
 import de.hglabor.notify.events.server.player.PlayerSwapHandItemsEvent;
 import me.obsilabor.alert.EventManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.network.packet.c2s.play.PlayerActionC2SPacket;
+import net.minecraft.network.packet.c2s.play.PlayerInteractBlockC2SPacket;
 import net.minecraft.server.PlayerManager;
 import net.minecraft.server.network.ServerPlayNetworkHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -43,5 +45,15 @@ public class MixinServerPlayNetworkHandler {
     private void onPlayerDisconnect(PlayerManager instance, Text message, boolean overlay) {
         var evt = EventManager.callEvent(new PlayerQuitEvent(player, message));
         if (evt.getQuitMessage() != null) instance.broadcast(evt.getQuitMessage(), overlay);
+    }
+
+    @Inject(method = "onPlayerInteractBlock", at = @At("HEAD"), cancellable = true)
+    public void onPlayerInteractBlock(PlayerInteractBlockC2SPacket packet, CallbackInfo ci) {
+        var evt = EventManager.callEvent(new PlayerInteractBlockEvent(player, packet.getHand(), packet.getBlockHitResult()));
+        if (evt.isCancelled()) {
+            // Sync client inventory
+            player.currentScreenHandler.syncState();
+            ci.cancel();
+        }
     }
 }

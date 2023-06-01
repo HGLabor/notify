@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.player
 
+import de.hglabor.notify.events.PlayerEvent
 import me.obsilabor.alert.Cancellable
 import net.minecraft.entity.ItemEntity
 import net.minecraft.entity.player.PlayerEntity
@@ -10,4 +11,4 @@ import net.minecraft.item.ItemStack
  *
  * Cancel to prevent.
  */
-class PlayerItemPickupEvent(val player: PlayerEntity, val stack: ItemStack, val item: ItemEntity) : Cancellable()
+class PlayerItemPickupEvent(override val player: PlayerEntity, val stack: ItemStack, val item: ItemEntity) : Cancellable(), PlayerEvent

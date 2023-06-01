@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.server.player
 
+import de.hglabor.notify.events.PlayerEvent
 import de.hglabor.notify.mixins.server.MixinPlayerManager
 import me.obsilabor.alert.Event
 import net.fabricmc.api.EnvType
@@ -12,4 +13,4 @@ import net.minecraft.text.Text
  * @see MixinPlayerManager.onPlayerConnect
  */
 @Environment(EnvType.SERVER)
-class PlayerJoinEvent(val player: ServerPlayerEntity, var joinMessage: Text?) : Event()
+class PlayerJoinEvent(override val player: ServerPlayerEntity, var joinMessage: Text?) : Event(), PlayerEvent

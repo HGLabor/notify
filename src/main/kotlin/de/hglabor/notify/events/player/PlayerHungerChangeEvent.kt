@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.player
 
+import de.hglabor.notify.events.PlayerEvent
 import me.obsilabor.alert.Cancellable
 import net.minecraft.entity.player.PlayerEntity
 
@@ -8,4 +9,4 @@ import net.minecraft.entity.player.PlayerEntity
  *
  * Cancel to prevent. Here you can e.g. reset the hunger to 20.
  */
-class PlayerHungerChangeEvent(val player: PlayerEntity, val oldValue: Int, val newValue: Int) : Cancellable()
+class PlayerHungerChangeEvent(override val player: PlayerEntity, val oldValue: Int, val newValue: Int) : Cancellable(), PlayerEvent

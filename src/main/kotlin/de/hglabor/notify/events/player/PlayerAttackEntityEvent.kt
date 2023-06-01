@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.player
 
+import de.hglabor.notify.events.PlayerEvent
 import me.obsilabor.alert.Cancellable
 import net.minecraft.entity.Entity
 import net.minecraft.entity.player.PlayerEntity
@@ -9,4 +10,4 @@ import net.minecraft.entity.player.PlayerEntity
  *
  * Cancel to prevent.
  */
-class PlayerAttackEntityEvent(val player: PlayerEntity, val target: Entity) : Cancellable()
+class PlayerAttackEntityEvent(override val player: PlayerEntity, val target: Entity) : Cancellable(), PlayerEvent

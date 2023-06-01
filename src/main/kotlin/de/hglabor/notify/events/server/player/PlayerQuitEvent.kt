@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.server.player
 
+import de.hglabor.notify.events.PlayerEvent
 import de.hglabor.notify.mixins.server.MixinServerPlayNetworkHandler
 import me.obsilabor.alert.Event
 import net.fabricmc.api.EnvType
@@ -12,4 +13,4 @@ import net.minecraft.text.Text
  * @see MixinServerPlayNetworkHandler.onPlayerDisconnect
  */
 @Environment(EnvType.SERVER)
-class PlayerQuitEvent(val player: ServerPlayerEntity, var quitMessage: Text?) : Event()
+class PlayerQuitEvent(override val player: ServerPlayerEntity, var quitMessage: Text?) : Event(), PlayerEvent

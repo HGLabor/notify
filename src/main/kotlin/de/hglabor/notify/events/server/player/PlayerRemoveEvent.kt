@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.server.player
 
+import de.hglabor.notify.events.PlayerEvent
 import de.hglabor.notify.mixins.server.MixinPlayerManager
 import me.obsilabor.alert.Event
 import net.fabricmc.api.EnvType
@@ -11,4 +12,4 @@ import net.minecraft.server.network.ServerPlayerEntity
  * @see MixinPlayerManager.remove
  */
 @Environment(EnvType.SERVER)
-class PlayerRemoveEvent(val player: ServerPlayerEntity) : Event()
+class PlayerRemoveEvent(override val player: ServerPlayerEntity) : Event(), PlayerEvent

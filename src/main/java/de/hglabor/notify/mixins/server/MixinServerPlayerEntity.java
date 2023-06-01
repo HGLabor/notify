@@ -5,8 +5,6 @@ import me.obsilabor.alert.EventManager;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.ItemEntity;
-import net.minecraft.entity.damage.DamageSource;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.packet.c2s.play.ClientSettingsC2SPacket;
 import net.minecraft.server.network.ServerPlayerEntity;
@@ -57,17 +55,6 @@ public abstract class MixinServerPlayerEntity {
     @Inject(method = "setClientSettings", at = @At("HEAD"))
     public void setClientSettings(ClientSettingsC2SPacket settingsPacket, CallbackInfo ci) {
         var player = ((ServerPlayerEntity) (Object) this);
-        var evt = EventManager.callEvent(new PlayerSetSettingsEvent(player, settingsPacket));
-        settingsPacket = evt.getSettingsPacket();
-    }
-
-    @Inject(method = "damage", at = @At("TAIL"), cancellable = true)
-    public void damage(DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
-        var player = ((ServerPlayerEntity) (Object) this);
-        var evt = EventManager.callEvent(new PlayerDamageEvent(player, source, amount));
-        if (evt.isCancelled()) {
-            if (evt.getNewAmount() == 0f) cir.setReturnValue(false);
-            else cir.setReturnValue(((PlayerEntity) (Object) this).damage(source, evt.getNewAmount()));
-        }
+        EventManager.callEvent(new PlayerSetSettingsEvent(player, settingsPacket));
     }
 }

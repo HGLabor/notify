@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.server.player
 
+import de.hglabor.notify.events.PlayerEvent
 import de.hglabor.notify.events.player.PlayerSlotClickEvent
 import de.hglabor.notify.mixins.server.MixinServerPlayerEntity
 import me.obsilabor.alert.Cancellable
@@ -18,4 +19,4 @@ import net.minecraft.server.network.ServerPlayerEntity
  * Cancel to prevent.
  */
 @Environment(EnvType.SERVER)
-class PlayerItemDropEvent(val player: ServerPlayerEntity, val stack: ItemStack) : Cancellable()
+class PlayerItemDropEvent(override val player: ServerPlayerEntity, val stack: ItemStack) : Cancellable(), PlayerEvent

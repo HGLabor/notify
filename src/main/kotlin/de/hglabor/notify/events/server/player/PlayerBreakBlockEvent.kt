@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.server.player
 
+import de.hglabor.notify.events.PlayerEvent
 import me.obsilabor.alert.Cancellable
 import net.fabricmc.api.EnvType
 import net.fabricmc.api.Environment
@@ -12,4 +13,4 @@ import net.minecraft.util.math.BlockPos
  * Cancel to prevent.
  */
 @Environment(EnvType.SERVER)
-class PlayerBreakBlockEvent(val player: ServerPlayerEntity, val pos: BlockPos) : Cancellable()
+class PlayerBreakBlockEvent(override val player: ServerPlayerEntity, val pos: BlockPos) : Cancellable(), PlayerEvent

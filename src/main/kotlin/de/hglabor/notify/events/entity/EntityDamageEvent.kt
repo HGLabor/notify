@@ -1,5 +1,6 @@
 package de.hglabor.notify.events.entity
 
+import de.hglabor.notify.events.EntityEvent
 import me.obsilabor.alert.Cancellable
 import net.minecraft.entity.LivingEntity
 import net.minecraft.entity.damage.DamageSource
@@ -9,4 +10,4 @@ import net.minecraft.entity.damage.DamageSource
  *
  * Cancel to prevent.
  */
-class EntityDamageEvent(val entity: LivingEntity, val source: DamageSource, val amount: Float) : Cancellable()
+class EntityDamageEvent(override val entity: LivingEntity, val source: DamageSource, val amount: Float) : Cancellable(), EntityEvent
