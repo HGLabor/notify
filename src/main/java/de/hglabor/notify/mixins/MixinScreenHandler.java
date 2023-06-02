@@ -5,6 +5,7 @@ import de.hglabor.notify.events.server.player.PlayerCraftItemEvent;
 import me.obsilabor.alert.EventManager;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.SlotActionType;
 import org.spongepowered.asm.mixin.Mixin;
@@ -27,7 +28,7 @@ public class MixinScreenHandler {
             playerEntity.currentScreenHandler.syncState();
             ci.cancel();
         }
-        else if (stack != null && slotId == 0) {
+        else if (stack != null && stack.getItem() != Items.AIR && slotId == 0) {
             // craft event
             var craftEvent = EventManager.callEvent(new PlayerCraftItemEvent(playerEntity, stack, slotActionType));
             if (craftEvent.isCancelled()) {
