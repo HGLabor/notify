@@ -6,19 +6,20 @@
     "defaultRequire": 0
   },
   "mixins": [
-    "MixinScreenHandler",
     "MixinBlockItem",
     "MixinHungerManager",
     "MixinItemEntity",
-    "MixinLivingEntity"
+    "MixinLivingEntity",
+    "MixinScreenHandler"
   ],
   "client": [
   ],
   "server": [
-    "server.MixinPlayerManager",
     "server.MixinPlayerEntity",
+    "server.MixinPlayerManager",
+    "server.MixinServerEntityManager",
+    "server.MixinServerPlayerEntity",
     "server.MixinServerPlayerInteractionManager",
-    "server.MixinServerPlayNetworkHandler",
-    "server.MixinServerPlayerEntity"
+    "server.MixinServerPlayNetworkHandler"
   ]
 }
