@@ -47,7 +47,8 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerHungerChangeEvent`
 - `PlayerItemPickupEvent`
 - `PlayerPlaceBlockEvent`
-- `PlayerSlotClickEvent`
+- `PlayerSlotClickEvent` (also called when player attempts to drop an item in the inventory)
+- `PlayerItemCraftEvent`
 - `EntityDamageEvent`
 
 </details>
@@ -58,8 +59,9 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerBreakBlockEvent`
 - `PlayerDeathEvent`
 - `PlayerInteractItemEvent`
-- `PlayerItemDropEvent`
-- `PlayerItemDroppedEvent`
+- `PlayerInteractBlockEvent`
+- `PlayerItemDropEvent`: called _when_ a player attempts to drop an item
+- `PlayerItemDroppedEvent`: called _after_ an item was dropped
 - `PrePlayerJoinEvent`: called _before_ a player joins the server
 - `PlayerJoinEvent`: called _when_ a player joins the server. Allows modification of the join message
 - `PostPlayerJoinEvent`: called _after_ a player joins the server
@@ -67,10 +69,30 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerQuitEvent`: called _when_ a player quits the server. Allows modification of the quit message
 - `PlayerSwapHandItemsEvent`
 - `PlayerTickEvent`
-
+- `PlayerSetSettingsEvent`: called e.g. when player changes client language
+- `EntitySpawnEvent`
 </details>
 
 <details open>
 <summary>Client</summary>
+</details>
+
+<details>
+<summary>Every entity (and player) event implements the <code>EntityEvent</code> interface and additionally every player event
+implements the <code>PlayerEvent</code> interface. That way we can easily add custom event listeners, e.g. like this:</summary>
+
+```kotlin
+inline fun <reified T : Event> customSubscribeToEvent(
+    noinline isActiveCallback: () -> Boolean = { true },
+    priority: Int = -1,
+    noinline handleCallback: (T) -> Unit,
+) = subscribeToEvent<T>(isActiveCallback, priority) {
+    if (it is EntityEvent && it.entity is PlayerEntity && it.entity.customProperty == "foo") {
+        handleCallback(it)
+    }
+}
+```
+In this example, when we e.g. use `customSubscribeToEvent<PlayerDeathEvent> {...}` we only listen to player death events
+where the player has the `customProperty` set to `"foo"`.
 
 </details>
