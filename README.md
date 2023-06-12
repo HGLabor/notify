@@ -72,6 +72,7 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerSetSettingsEvent`: called e.g. when player changes client language
 - `EntitySpawnEvent`
 - `ProjectileHitEvent`: called when a projectile hits another entity
+
 </details>
 
 <details open>
