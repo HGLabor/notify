@@ -23,7 +23,7 @@ repositories {
 dependencies {
     // ...
     
-    modImplementation("de.hglabor:notify:1.1.2")
+    modImplementation("de.hglabor:notify:1.1.3")
 }
 ```
 Then put the built jar file of notify into your mods folder. You should be able to subscribe to the events like this:
@@ -71,6 +71,7 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 - `PlayerTickEvent`
 - `PlayerSetSettingsEvent`: called e.g. when player changes client language
 - `EntitySpawnEvent`
+- `ProjectileHitEvent`: called when a projectile hits another entity
 </details>
 
 <details open>
