@@ -11,5 +11,4 @@ import net.minecraft.screen.slot.SlotActionType
 /**
  * Called when a player crafts an item.
  */
-@Environment(EnvType.SERVER)
 class PlayerCraftItemEvent(override val player: PlayerEntity, val item: ItemStack, val action: SlotActionType) : Cancellable(), PlayerEvent
