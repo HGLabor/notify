@@ -13,14 +13,14 @@
     "MixinItemEntity",
     "MixinLivingEntity",
     "MixinProjectileEntity",
-    "MixinScreenHandler"
+    "MixinScreenHandler",
+    "MixinPlayerEntity"
   ],
   "client": [
     "client.MixinKeyboard",
     "client.MixinMouse"
   ],
   "server": [
-    "server.MixinPlayerEntity",
     "server.MixinPlayerManager",
     "server.MixinServerEntityManager",
     "server.MixinServerPlayerEntity",
