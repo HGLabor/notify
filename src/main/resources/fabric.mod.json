@@ -5,7 +5,7 @@
   "name": "notify",
   "description": "A collection of fabric mixins for (paper) events.",
   "authors": [
-    "Krxwallo"
+    "Krxwallo", "NoRiskk", "Moozii"
   ],
   "contact": {
     "homepage": "https://github.com/HGLabor/notify",
@@ -29,7 +29,7 @@
     "notify.mixins.json"
   ],
   "depends": {
-    "minecraft": "1.19.x",
+    "minecraft": "1.20.x",
     "java": ">=17",
     "fabric-language-kotlin": "*",
     "fabric-api": "*"

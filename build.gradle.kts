@@ -11,15 +11,20 @@ plugins {
 group = "de.hglabor"
 version = "1.1.3"
 
+val minecraftVersion = "1.20.1"
+val yarnMappings = "1.20.1+build.1"
+val loaderVersion = "0.14.21"
+val fabricVersion = "0.83.0+1.20.1"
+
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    minecraft("com.mojang:minecraft:1.19.4")
-    mappings("net.fabricmc:yarn:1.19.4+build.1:v2")
-    modImplementation("net.fabricmc:fabric-loader:0.14.17")
-    modImplementation("net.fabricmc.fabric-api:fabric-api:0.77.0+1.19.4")
+    minecraft("com.mojang:minecraft:$minecraftVersion")
+    mappings("net.fabricmc:yarn:$yarnMappings")
+    modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
+    modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
     modImplementation("net.fabricmc:fabric-language-kotlin:1.9.3+kotlin.1.8.20")
 
     include(api("me.obsilabor:alert:1.0.7")!!)
