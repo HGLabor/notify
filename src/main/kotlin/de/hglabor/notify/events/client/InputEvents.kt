@@ -11,4 +11,4 @@ class MouseButtonEvent(val window: Long, val button: Int, val action: Int, val m
 class MouseScrollEvent(val window: Long, val horizontal: Double, val vertical: Double) : Event()
 /** Called when the cursor is moved */
 class MouseCursorEvent(val window: Long, val x: Double, val y: Double) : Event()
-class KeyPressedOnceEvent(val key: InputUtil.Key, val action: Int, val client: MinecraftClient) : Cancellable()
+class KeyPressedOnceEvent(val key: InputUtil.Key, val action: Int, val modifiers: Int, val client: MinecraftClient) : Cancellable()
