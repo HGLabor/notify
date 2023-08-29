@@ -22,7 +22,7 @@ public abstract class MixinKeyboard {
     private void onKeyInjection(long window, int key, int scancode, int action, int j, CallbackInfo callback) {
         if (action == 1) {
             //Cancel nie getestet
-            var evt = EventManager.callEvent(new KeyPressedOnceEvent(InputUtil.fromKeyCode(key, scancode), client));
+            var evt = EventManager.callEvent(new KeyPressedOnceEvent(InputUtil.fromKeyCode(key, scancode), action, client));
             if (evt.isCancelled()) {
                 callback.cancel();
             }
