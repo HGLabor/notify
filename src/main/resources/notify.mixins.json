@@ -17,7 +17,11 @@
     "MixinScreenHandler"
   ],
   "client": [
+    "client.MixinClientConnection",
+    "client.MixinClientPlayNetworkHandler",
+    "client.MixinInGameHud",
     "client.MixinKeyboard",
+    "client.MixinMinecraftClient",
     "client.MixinMouse",
     "client.MixinPlayerEntityRenderer"
   ],

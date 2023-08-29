@@ -4,6 +4,7 @@ import de.hglabor.notify.events.client.KeyPressedOnceEvent;
 import me.obsilabor.alert.EventManager;
 import net.minecraft.client.Keyboard;
 import net.minecraft.client.MinecraftClient;
+import net.minecraft.client.util.InputUtil;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -21,7 +22,7 @@ public abstract class MixinKeyboard {
     private void onKeyInjection(long window, int key, int scancode, int action, int j, CallbackInfo callback) {
         if (action == 1) {
             //Cancel nie getestet
-            var evt = EventManager.callEvent(new KeyPressedOnceEvent(key, scancode, client));
+            var evt = EventManager.callEvent(new KeyPressedOnceEvent(InputUtil.fromKeyCode(key, scancode), client));
             if (evt.isCancelled()) {
                 callback.cancel();
             }

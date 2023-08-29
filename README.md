@@ -38,7 +38,7 @@ subscribeToEvent<PlayerJoinEvent> {
 </details>
 
 ### Events currently implemented
-Subscribing to events on the client is not tested! (server/common events **should work on the server**)
+Client-sided events are unstable! (server/common events **should work on the server**)
 <details open>
 
 <summary>Common</summary>
@@ -77,6 +77,21 @@ Subscribing to events on the client is not tested! (server/common events **shoul
 
 <details open>
 <summary>Client</summary>
+
+- `EntityOnTrackedDataSetEvent`
+- `EntityInitDataTrackerEvent`
+- `MouseButtonEvent`
+- `MouseScrollEvent`
+- `MouseCursorEvent`
+- `KeyPressedOnceEvent`
+- `PumpkinOverlayRenderEvent`
+- `ClientStopEvent`
+- `PreTickEvent`
+- `PostTickEvent`
+- `GameDisconnectEvent`
+- `GameJoinEvent`
+- `PlayerEntityRendererScaleEvent`: adds a scale factor to the player entity renderer
+
 </details>
 
 <details>

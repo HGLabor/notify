@@ -1,6 +1,5 @@
 package de.hglabor.notify.mixins.client;
 
-import de.hglabor.notify.events.PlayerEvent;
 import de.hglabor.notify.events.client.PlayerEntityRendererScaleEvent;
 import me.obsilabor.alert.EventManager;
 import net.minecraft.client.network.AbstractClientPlayerEntity;
