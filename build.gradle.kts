@@ -9,7 +9,7 @@ plugins {
 }
 
 group = "de.hglabor"
-version = "1.2.2"
+version = "1.2.4"
 
 val minecraftVersion = "1.20.1"
 val yarnMappings = "1.20.1+build.1"

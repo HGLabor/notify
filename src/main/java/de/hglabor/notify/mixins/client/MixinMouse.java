@@ -15,7 +15,7 @@ public abstract class MixinMouse {
     /**
      * Hook mouse button event
      */
-    @Inject(method = "onMouseButton", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;getOverlay()Lnet/minecraft/client/gui/screen/Overlay;", shift = At.Shift.BEFORE))
+    @Inject(method = "onMouseButton", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/MinecraftClient;getOverlay()Lnet/minecraft/client/gui/screen/Overlay;", shift = At.Shift.BEFORE, ordinal = 0))
     private void hookMouseButton(long window, int button, int action, int mods, CallbackInfo callbackInfo) {
         EventManager.callEvent(new MouseButtonEvent(window, button, action, mods));
     }
