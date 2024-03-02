@@ -6,7 +6,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.network.packet.c2s.play.ClientSettingsC2SPacket;
+import net.minecraft.network.packet.c2s.common.SyncedClientOptions;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
@@ -52,9 +52,9 @@ public abstract class MixinServerPlayerEntity {
         }
     }
 
-    @Inject(method = "setClientSettings", at = @At("HEAD"))
-    public void setClientSettings(ClientSettingsC2SPacket settingsPacket, CallbackInfo ci) {
+    @Inject(method = "setClientOptions", at = @At("HEAD"))
+    public void setClientOptions(SyncedClientOptions clientOptions, CallbackInfo ci) {
         var player = ((ServerPlayerEntity) (Object) this);
-        EventManager.callEvent(new PlayerSetSettingsEvent(player, settingsPacket));
+        EventManager.callEvent(new PlayerSetClientOptionEvent(player, clientOptions));
     }
 }
