@@ -1,5 +1,3 @@
-import java.text.SimpleDateFormat
-
 val javaVersion = 17
 val repo = "HGLabor/notify"
 
@@ -55,6 +53,9 @@ java {
     withJavadocJar()
 }
 
+signing {
+    sign(publishing.publications)
+}
 
 publishing {
     repositories {
