@@ -9,6 +9,7 @@ import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.network.ClientConnection;
 import net.minecraft.server.PlayerManager;
+import net.minecraft.server.network.ConnectedClientData;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,13 +26,13 @@ public class MixinPlayerManager {
     @Unique private ServerPlayerEntity notify$tempPlayer = null;
 
     @Inject(method = "onPlayerConnect", at = @At("HEAD"))
-    public void onPlayerConnectPre(ClientConnection clientConnection, ServerPlayerEntity player, CallbackInfo ci) {
+    public void onPlayerConnectPre(ClientConnection clientConnection, ServerPlayerEntity player, ConnectedClientData connectedClientData, CallbackInfo ci) {
         notify$tempPlayer = player;
         EventManager.callEvent(new PrePlayerJoinEvent(player));
     }
 
     @Inject(method = "onPlayerConnect", at = @At("TAIL"))
-    public void onPlayerConnectPost(ClientConnection clientConnection, ServerPlayerEntity player, CallbackInfo ci) {
+    public void onPlayerConnectPost(ClientConnection clientConnection, ServerPlayerEntity player, ConnectedClientData connectedClientData, CallbackInfo ci) {
         if (player.isDisconnected()) return; // Don't call event if played got kicked
         EventManager.callEvent(new PostPlayerJoinEvent(player));
     }
