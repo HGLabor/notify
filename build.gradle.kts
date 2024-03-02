@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat
+
 val javaVersion = 17
 val repo = "HGLabor/notify"
 
@@ -9,12 +11,12 @@ plugins {
 }
 
 group = "de.hglabor"
-version = "1.2.4"
+version = "1.3.0"
 
-val minecraftVersion = "1.20.1"
-val yarnMappings = "1.20.1+build.1"
-val loaderVersion = "0.14.21"
-val fabricVersion = "0.83.0+1.20.1"
+val minecraftVersion = "1.20.4"
+val yarnMappings = "$minecraftVersion+build.1"
+val loaderVersion = "0.15.7"
+val fabricVersion = "0.96.4+$minecraftVersion"
 
 repositories {
     mavenCentral()
@@ -25,9 +27,9 @@ dependencies {
     mappings("net.fabricmc:yarn:$yarnMappings")
     modImplementation("net.fabricmc:fabric-loader:$loaderVersion")
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricVersion")
-    modImplementation("net.fabricmc:fabric-language-kotlin:1.9.3+kotlin.1.8.20")
+    modImplementation("net.fabricmc:fabric-language-kotlin:1.10.18+kotlin.1.9.22")
 
-    include(api("me.obsilabor:alert:1.0.7")!!)
+    include(api("me.obsilabor:alert:1.0.8")!!)
 }
 
 tasks {
@@ -53,9 +55,6 @@ java {
     withJavadocJar()
 }
 
-signing {
-    sign(publishing.publications)
-}
 
 publishing {
     repositories {
