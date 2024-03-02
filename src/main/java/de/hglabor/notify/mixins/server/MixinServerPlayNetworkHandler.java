@@ -36,7 +36,7 @@ public class MixinServerPlayNetworkHandler {
     }
 
     @Redirect(
-        method = "onDisconnected",
+        method = "cleanUp",
         at = @At(
             value = "INVOKE",
             target = "Lnet/minecraft/server/PlayerManager;broadcast(Lnet/minecraft/text/Text;Z)V"
